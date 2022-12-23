@@ -1,2 +1,9 @@
-a1 = Agent.create(login:'paberto', password:'1234', a_name:'Pablo Roberto Garcia', a_nationality:'Caracas, Venezuela🇻🇪' )
-a2
+Player.create(p_name: 'Jose', p_birthday:"11/08/1993", p_nationality: "Venezuela", height: 172, weight: 235, position: "CF")
+
+puts "done with players..."
+
+
+
+Agent.create(name:'paberto', email: 'paberto@makers.com', password:'1234' )
+
+puts "done with agents...."

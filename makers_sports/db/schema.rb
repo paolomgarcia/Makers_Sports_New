@@ -15,11 +15,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_173621) do
   enable_extension "plpgsql"
 
   create_table "agents", force: :cascade do |t|
-    t.string "login"
+    t.string "name"
+    t.string "email"
     t.string "password_digest"
-    t.string "a_name"
-    t.date "a_birthday"
-    t.string "a_nationality"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
