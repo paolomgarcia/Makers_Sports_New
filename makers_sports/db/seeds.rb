@@ -2,8 +2,6 @@ Player.create(p_name: 'Jose', p_birthday:"11/08/1993", p_nationality: "Venezuela
 
 puts "done with players..."
 
-
-
-Agent.create(name:'paberto', email: 'paberto@makers.com', password:'1234' )
+User.create(name:'paberto', email: 'paberto@makers.com', password:'1234' )
 
 puts "done with agents...."

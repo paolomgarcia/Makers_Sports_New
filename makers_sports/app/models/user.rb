@@ -1,4 +1,4 @@
-class Agent < ApplicationRecord
+class User < ApplicationRecord
     has_many :players
     has_many :organizations, through: :players
 

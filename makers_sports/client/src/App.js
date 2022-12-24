@@ -1,64 +1,42 @@
-import { Route, Switch } from 'react-router-dom'
-import {createGlobalStyle} from 'styled-components'
 import {useEffect, useState} from 'react'
-import Login from './Components/Login'
-// import Home from './components/Home'
-// import ProductionForm from './components/ProductionForm'
-// import EditProductionForm from './components/EditProductionForm'
-// import Navigation from './components/Navigation'
-// import ProductionDetail from './components/ProductionDetail'
-// import UserPage from './components/UserPage'
-// import NotFound from './components/NotFound'
+import './App.css';
+import { Route, Switch } from 'react-router-dom'
+import Login from './components/Login'
+import Navigation from './components/Navigation'
+
+
 
 function App() {
-  // const [count, setCount] = useState(0); <- used for the cookies testing
-  // const [productions, setProductions] = useState([])
-  // const [errors, setErrors] = useState(false)
-  const [currentAgent, setCurrentAgent] = useState(false)
-
-
+  const [currentUser, setCurrentUser] = useState(false)
+  const [errors, setErrors] = useState(false)
 
   useEffect(() => {
     fetch("/authorized_user")
     .then((res) => {
       if (res.ok) {
         res.json()
-        .then((agent) => {
-          setCurrentAgent(agent);
-          // fetchPlayers() here potentially
+        .then((user) => {
+          updateUser(user);
         });
       }
     })
   },[])
 
-  const updateAgent = (agent) => setCurrentAgent(agent)
+  console.log(currentUser);
+  const updateUser = (user) => setCurrentUser(user)
 
-
+  if(errors) return <h1>{errors}</h1>
 
   return (
-  <Route path='/login'>
-    <Login updateUser={updateAgent}/>
-  </Route>
-
-
-  )
+    <div className="App">
+      <Navigation updateUser={updateUser} />
+      <Switch>
+          <Route path='/login'>
+            <Login updateUser={updateUser}/>
+          </Route>
+      </Switch>
+    </div>
+  );
 }
 
 export default App;
-
-
-
-
-
-
-  // useEffect(() => {
-  //   fetch("/hello")
-  //     .then((r) => r.json())
-  //     .then((data) => setCount(data.count));
-  // }, []);
-
-//   <div className="App">
-//   <h1>Page Count: {count}</h1>
-// </div>
-// );
-// }

@@ -7,7 +7,7 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
       t.integer :height
       t.integer :weight
       t.string :position
-      t.belongs_to :agent, null: false, foreign_key: true
+      t.belongs_to :user, null: false, foreign_key: true
       t.belongs_to :organization, null: false, foreign_key: true
 
       t.timestamps

@@ -1,4 +1,4 @@
 class Player < ApplicationRecord
-  belongs_to :agent
+  belongs_to :user
   belongs_to :organization
 end

@@ -1,40 +1,35 @@
 import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
-import {Form} from '../styled/Form'
+// import {Form} from '../styled/Form'
 
-function Login({updateAgent}) {
+function Login({updateUser}) {
     const [formData, setFormData] = useState({
         name:'',
         email:'',
         password:''
     })
-    const [signup, setSignup] = useState(false)
     const [errors, setErrors] = useState([])
     const history = useHistory()
 
-    const {name, email, password} = formData
+    const {name, password} = formData
 
     function onSubmit(e){
         e.preventDefault()
-        const agent = {
+        const user = {
             name,
-            email,
             password
         }
-
-        let url = `/login`
-        if(signup) url = '/agents'
-        // Logs in agent
-        fetch(url,{
+       console.log(user)
+        fetch(`/login`,{
           method:'POST',
           headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(agent)
+          body:JSON.stringify(user)
         })
         .then(res => {
             if(res.ok){
-                res.json().then(agent => {
-                    updateAgent(agent)
-                    history.push(`/agents/${agent.id}`)
+                res.json().then(user => {
+                    updateUser(user)
+                    history.push(`/`)
                 })
             }else {
                 res.json().then(json => setErrors(json.errors))
@@ -49,28 +44,23 @@ function Login({updateAgent}) {
       }
     return (
         <>
-        <Form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
         <label>
-          Name
+          Username
           </label>
         <input type='text' name='name' value={name} onChange={handleChange} />
-
-        <label>
-          Email
-          </label>
-        <input type='text' name='email' value={email} onChange={handleChange} />
 
         <label>
          Password
          </label>
         <input type='password' name='password' value={password} onChange={handleChange} />
 
-        <input type='submit' value='Log in!'/>
-        <input type='submit' onClick={() => setSignup(true)} value='Sign up!'/>
-      </Form>
+
+        <input type='submit' value='Log in!' />
+      </form>
       {errors? <div>{errors}</div>:null}
         </>
     )
 }
 
-export default Login;
+export default Login
