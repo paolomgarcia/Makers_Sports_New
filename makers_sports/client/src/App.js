@@ -8,10 +8,6 @@ import PlayerForm from './components/PlayerForm'
 import PlayerDetail from './components/PlayerDetail'
 import EditPlayerForm from './components/EditPlayerForm'
 
-
-
-
-
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [players, setPlayers] = useState([])
@@ -74,7 +70,6 @@ function App() {
         <Login updateUser={updateUser}/>
       </Route>
 
-
       <Route exact path='/'>
         <Home players={players}/>
       </Route>
@@ -90,8 +85,6 @@ function App() {
       <Route  exact path='/players/:id/edit'>
         <EditPlayerForm updatePlayer={updatePlayer}/>
       </Route>
-
-
 
       {/* <Route>
         <NotFound />

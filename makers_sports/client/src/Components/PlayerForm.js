@@ -63,6 +63,9 @@ function PlayerForm({addPlayer}) {
         <label>Position</label>
         <textarea type='text' name='position' value={formData.position} onChange={handleChange} />
 
+        <label>Image</label>
+        <input type='text' name='image' value={formData.image} onChange={handleChange} />
+
         <label>User ID</label>
         <textarea type='text' name='user_id' value={formData.user_id} onChange={handleChange} />
 

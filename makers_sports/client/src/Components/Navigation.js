@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import {Link} from 'react-router-dom'
-import { GiHamburgerMenu } from 'react-icons/gi'
-
+import logo from './logo.png'
 
 
 function Navigation({updateUser}) {
@@ -19,26 +18,23 @@ function Navigation({updateUser}) {
       }
 
     return (
-      <nav>
-      <h1>Makers Sports Agency</h1>
-      <menu>
-        <button onClick={handleLogout}>Log Out</button>
-        {!menu?
-        <div onClick={() => setMenu(!menu)}>
-          <GiHamburgerMenu size={30}/>
-        </div>:
-        <ul>
-         {/* <li onClick={() => setMenu(!menu)}>x</li> */}
-         <li><Link to='/login'>Login</Link></li>
-         <li><Link to='/players/new'>Add Players</Link></li>
-         <li><Link to='/'> Home</Link></li>
-        </ul>
-        }
-      </menu>
-
-     </nav>
+      <>
+      <div className="navbar bg-base-100">
+        <img src={logo} alt="logo" style={{maxHeight: "75px", maxWidth: "75px"}}/>
+  <div className="flex-1">
+    <a className="btn btn-ghost normal-case text-xl"><Link to='/'>Maker's Sports Agency</Link></a>
+  </div>
+  <div className="flex-none">
+    <ul className="menu menu-horizontal px-1">
+    <li><Link to='/'> Home</Link></li>
+    <li><Link to='/players/new'>Add Players</Link></li>
+    <li><Link to='/login'>Login</Link></li>
+    <button onClick={handleLogout}>Log Out</button>
+    </ul>
+  </div>
+</div>
+     </>
     )
-
 }
 
 export default Navigation;

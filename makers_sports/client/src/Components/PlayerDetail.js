@@ -46,7 +46,7 @@ function PlayerDetail({deletePlayer}) {
   if(errors) return <h1>{errors}</h1>
 
 
-  const {id, p_name, p_birthday, p_nationality, height, weight, position} = player
+  const {id, p_name, p_birthday, p_nationality, height, weight, position, image} = player
   console.log(player);
 
   //Place holder data, will be replaced in the assosiations lecture.
@@ -66,6 +66,7 @@ function PlayerDetail({deletePlayer}) {
               <p>{weight}</p>
               <p>Position:</p>
               <p>{position}</p>
+              <p><img src={image} alt="Error Loading"/></p>
             </div>
           </div>
       <button><Link to={`/players/${id}/edit`}>Edit Player</Link></button>

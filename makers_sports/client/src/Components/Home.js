@@ -5,7 +5,7 @@ function Home({players}){
     console.log(players)
     return(
     <div>
-        <p>Home Page</p>
+        <p>Maker's Team:</p>
         <PlayerContainer players={players} />
     </div>
     )

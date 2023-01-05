@@ -9,6 +9,7 @@ function EditPlayerForm({updatePlayer}) {
     height:'',
     weight:'',
     position:'',
+    image:'',
     user_id:'',
     organization_id:''
   })
@@ -64,6 +65,15 @@ function EditPlayerForm({updatePlayer}) {
 
         <label>Position</label>
         <input type='text' name='position' value={formData.position} onChange={handleChange} />
+
+        <label>Image</label>
+        <input type='text' name='image' value={formData.image} onChange={handleChange} />
+
+        <label>User ID</label>
+        <textarea type='text' name='user_id' value={formData.user_id} onChange={handleChange} />
+
+        <label>Organization ID</label>
+        <textarea type='text' name='organization_id' value={formData.organization_id} onChange={handleChange} />
 
         <input type='submit' value='Update Player' />
       </form>
