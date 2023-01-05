@@ -8,7 +8,7 @@ class PlayersController < ApplicationController
     end
 
     def show
-        production = Player.find(params[:id])
+        player = Player.find(params[:id])
         render json: player, include: :p_name, status: :ok
     end
 

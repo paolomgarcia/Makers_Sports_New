@@ -5,6 +5,10 @@ import Login from './components/Login'
 import Navigation from './components/Navigation'
 import Home from './components/Home'
 import PlayerForm from './components/PlayerForm'
+import PlayerDetail from './components/PlayerDetail'
+import EditPlayerForm from './components/EditPlayerForm'
+
+
 
 
 
@@ -39,6 +43,19 @@ function App() {
 
   const addPlayer = (player) => setPlayers(current => [...current,player])
 
+  const updatePlayer = (updatedPlayer) => setPlayers(current => {
+    return current.map(player => {
+     if(player.id === updatedPlayer.id){
+       return updatedPlayer
+     } else {
+       return player
+     }
+    })
+  })
+
+  const deletePlayer = (id) => setPlayers(current => current.filter(p => p.id !== id))
+
+
   console.log(currentUser);
   const updateUser = (user) => setCurrentUser(user)
 
@@ -49,20 +66,11 @@ function App() {
     <Navigation updateUser={updateUser}/>
     { !currentUser? <Login error={'please login'} updateUser={updateUser} /> :
       <Switch>
-
-      {/* <Route  path='/productions/:id/edit'>
-        <EditProductionForm updateProduction={updateProduction}/>
-      </Route> */}
-
-      {/* <Route path='/productions/:id'>
-          <ProductionDetail deleteProduction={deleteProduction}/>
-      </Route> */}
-
       {/* <Route path='/users/:id'>
         <UserPage updateUser={updateUser}/>
       </Route> */}
 
-      <Route path='/login'>
+      <Route exact path='/login'>
         <Login updateUser={updateUser}/>
       </Route>
 
@@ -71,9 +79,19 @@ function App() {
         <Home players={players}/>
       </Route>
 
-      <Route  path='/players/new'>
+      <Route  exact path='/players/new'>
         <PlayerForm addPlayer={addPlayer}/>
       </Route>
+
+      <Route exact path='/players/:id'>
+          <PlayerDetail deletePlayer={deletePlayer}/>
+      </Route>
+
+      <Route  exact path='/players/:id/edit'>
+        <EditPlayerForm updatePlayer={updatePlayer}/>
+      </Route>
+
+
 
       {/* <Route>
         <NotFound />
