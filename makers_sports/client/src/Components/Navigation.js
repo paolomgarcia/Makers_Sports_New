@@ -30,7 +30,7 @@ function Navigation({updateUser}) {
         <ul>
          {/* <li onClick={() => setMenu(!menu)}>x</li> */}
          <li><Link to='/login'>Login</Link></li>
-         <li><Link to='/productions/'>Players</Link></li>
+         <li><Link to='/players/new'>Add Players</Link></li>
          <li><Link to='/'> Home</Link></li>
         </ul>
         }

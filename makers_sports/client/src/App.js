@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import Login from './components/Login'
 import Navigation from './components/Navigation'
 import Home from './components/Home'
-import ProductionForm from './components/ProductionForm'
+import PlayerForm from './components/PlayerForm'
 
 
 
@@ -37,6 +37,8 @@ function App() {
     })
   }
 
+  const addPlayer = (player) => setPlayers(current => [...current,player])
+
   console.log(currentUser);
   const updateUser = (user) => setCurrentUser(user)
 
@@ -47,9 +49,7 @@ function App() {
     <Navigation updateUser={updateUser}/>
     { !currentUser? <Login error={'please login'} updateUser={updateUser} /> :
       <Switch>
-      {/* <Route  path='/productions/new'>
-        <ProductionForm addProduction={addProduction}/>
-      </Route> */}
+
       {/* <Route  path='/productions/:id/edit'>
         <EditProductionForm updateProduction={updateProduction}/>
       </Route> */}
@@ -69,6 +69,10 @@ function App() {
 
       <Route exact path='/'>
         <Home players={players}/>
+      </Route>
+
+      <Route  path='/players/new'>
+        <PlayerForm addPlayer={addPlayer}/>
       </Route>
 
       {/* <Route>

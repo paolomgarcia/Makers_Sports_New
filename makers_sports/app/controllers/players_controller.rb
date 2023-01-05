@@ -1,4 +1,8 @@
 class PlayersController < ApplicationController
+
+    wrap_parameters format: []
+
+
     def index
         render json: Player.all, status: :ok
     end
@@ -28,7 +32,7 @@ class PlayersController < ApplicationController
     private
 
     def player_params
-        params.permit(:p_name, :p_birthday, :p_nationality, :height, :weight, :position)
+        params.permit(:p_name, :p_birthday, :p_nationality, :height, :weight, :position, :user_id, :organization_id)
     end
 
 end

@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_173621) do
     t.integer "height"
     t.integer "weight"
     t.string "position"
-    t.bigint "user_id", null: false
-    t.bigint "organization_id", null: false
+    t.bigint "user_id"
+    t.bigint "organization_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_players_on_organization_id"

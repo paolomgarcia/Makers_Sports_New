@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :players, only: [ :index, :show, :create, :update, :destroy]
-  resources :organizations, only: [:create, :show]
+  resources :organizations, only: [:create, :show, :destroy, :index]
   resources :agents, only: [:show, :create]
 
 #   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
