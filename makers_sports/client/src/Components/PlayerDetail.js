@@ -52,28 +52,24 @@ function PlayerDetail({deletePlayer}) {
   //Place holder data, will be replaced in the assosiations lecture.
   // const crew_members = ['Lily-Mai Harding', 'Cathy Luna', 'Tiernan Daugherty', 'Giselle Nava', 'Alister Wallis', 'Aishah Rowland', 'Keiren Bernal', 'Aqsa Parrish', 'Daanyal Laing', 'Hollie Haas']
   return (
-      <card>
-        <h1>{p_name}</h1>
-          <div>
-            <div>
-              <p>Birthday:</p>
-              <p>{p_birthday}</p>
-              <p>Nationality:</p>
-              <p>{p_nationality}</p>
-              <p>Height:</p>
-              <p>{height}</p>
-              <p>Weight:</p>
-              <p>{weight}</p>
-              <p>Position:</p>
-              <p>{position}</p>
-              <p><img src={image} alt="Error Loading"/></p>
-            </div>
-          </div>
-      <button><Link to={`/players/${id}/edit`}>Edit Player</Link></button>
-      <button onClick={handleDelete}>Delete Player</button>
-      </card>
+    <div className="card w-96 bg-base-100 shadow-xl">
+    <figure><img src={image} alt="Error Loading" /></figure>
+    <div className="card-body">
+      <h2 className="card-title">{p_name}</h2>
+      <p>Birthday: {p_birthday}</p>
+      <p>Nationality: {p_nationality}</p>
+      <p>Height: {height}</p>
+      <p>Weight: {weight}</p>
+      <p>Position: {position}</p>
+      <div className="card-actions justify-end">
+      <button><Link className="btn btn-primary" to={`/players/${id}/edit`}>Edit Player</Link></button>
+      <button className="btn btn-primary" onClick={handleDelete}>Delete Player</button>
+      </div>
+    </div>
+  </div>
     )
   }
 
 
   export default PlayerDetail
+

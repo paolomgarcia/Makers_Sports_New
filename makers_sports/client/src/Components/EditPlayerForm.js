@@ -45,41 +45,29 @@ function EditPlayerForm({updatePlayer}) {
     })
   }
     return (
-      <div className='App'>
+      <div class="form-control">
       {errors?errors.map(e => <div>{e}</div>):null}
-      <form onSubmit={onSubmit}>
-        <label>Name</label>
-        <input type='text' name='p_name' value={formData.p_name} onChange={handleChange} />
-
-        <label> Birthday</label>
-        <input type='date' name='p_birthday' value={formData.p_birthday} onChange={handleChange} />
-
-        <label>Nationality</label>
-        <input type='text' name='p_nationality' value={formData.p_nationality} onChange={handleChange} />
-
-        <label>Height</label>
-        <input type='text' name='height' value={formData.height} onChange={handleChange} />
-
-        <label>Weight</label>
-        <input type='text' name='weight' value={formData.weight} onChange={handleChange} />
-
-        <label>Position</label>
-        <input type='text' name='position' value={formData.position} onChange={handleChange} />
-
-        <label>Image</label>
-        <input type='text' name='image' value={formData.image} onChange={handleChange} />
-
-        <label>User ID</label>
-        <textarea type='text' name='user_id' value={formData.user_id} onChange={handleChange} />
-
-        <label>Organization ID</label>
-        <textarea type='text' name='organization_id' value={formData.organization_id} onChange={handleChange} />
-
-        <button><input type='submit' value='Update Player' /></button>
-      </form>
-      {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null}
-      </div>
-    )
-  }
+    <label class="label">
+      <span class="label-text">Add Player Form</span>
+    </label>
+    <form style={{fontWeight: "bold", flex: 1, flexDirection: "vertical",justifyContent: "center",}} onSubmit={onSubmit}>
+    <input class="input input-bordered" placeholder='name...' type='text' name='p_name' value={formData.p_name} onChange={handleChange} />
+    <input class="input input-bordered" type='date' name='p_birthday' value={formData.p_birthday} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='nationality...' type='text' name='p_nationality' value={formData.p_nationality} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='height...' type='text' name='height' value={formData.height} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='weight...' type='text' name='weight' value={formData.weight} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='position...' type='text' name='position' value={formData.position} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='image url...' type='text' name='image' value={formData.image} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='user ID...' type='text' name='user_id' value={formData.user_id} onChange={handleChange} />
+    <input class="input input-bordered" placeholder='organization ID...'type='text' name='organization_id' value={formData.organization_id} onChange={handleChange} />
+    <input className="btn btn-primary" type='submit' value='Add Player' />
+    </form>
+    {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null}
+  </div>
+  )
+}
 
   export default EditPlayerForm
+
+
+

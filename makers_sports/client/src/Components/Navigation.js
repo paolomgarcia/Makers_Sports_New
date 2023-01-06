@@ -26,10 +26,10 @@ function Navigation({updateUser}) {
   </div>
   <div className="flex-none">
     <ul className="menu menu-horizontal px-1">
-    <li><Link to='/'> Home</Link></li>
-    <li><Link to='/players/new'>Add Players</Link></li>
-    <li><Link to='/login'>Login</Link></li>
-    <button onClick={handleLogout}>Log Out</button>
+    <li className="btn btn-primary" ><Link to='/'> Home</Link></li>
+    <li className="btn btn-primary"><Link to='/players/new'>Add Players</Link></li>
+    <li className="btn btn-primary"><Link to='/login'>Login</Link></li>
+    <button className="btn btn-primary" onClick={handleLogout}>Log Out</button>
     </ul>
   </div>
 </div>

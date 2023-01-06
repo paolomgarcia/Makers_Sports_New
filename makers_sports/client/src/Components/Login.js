@@ -42,25 +42,21 @@ function Login({updateUser}) {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
       }
+
     return (
-        <>
-        <form onSubmit={onSubmit}>
-        <label>
-          Username
-          </label>
-        <input type='text' name='name' value={name} onChange={handleChange} />
-
-        <label>
-         Password
-         </label>
-        <input type='password' name='password' value={password} onChange={handleChange} />
-
-
-        <input type='submit' value='Log in!' />
-      </form>
-      {errors? <div>{errors}</div>:null}
-        </>
-    )
-}
+        <div class="form-control">
+        <label class="label">
+        <span class="label-text">Agent Sign In</span>
+        </label>
+        <form style={{fontWeight: "bold", flex: 1, flexDirection: "row",justifyContent: "center",}} onSubmit={onSubmit}>
+        <input placeholder="username" type='text' name='name' value={name} onChange={handleChange} />
+        <input placeholder="password" type='password' name='password' value={password} onChange={handleChange} />
+        <input className="btn btn-primary" type='submit' value='Log In!' />
+        </form>
+        {errors? <div>{errors}</div>:null}
+        </div>
+        )
+        }
 
 export default Login
+
