@@ -7,6 +7,7 @@ class CreatePlayers < ActiveRecord::Migration[7.0]
       t.integer :height
       t.integer :weight
       t.string :position
+      t.string :image
       t.belongs_to :user, null: true, foreign_key: true
       t.belongs_to :organization, null: true, foreign_key: true
 

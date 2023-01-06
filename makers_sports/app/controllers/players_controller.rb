@@ -32,7 +32,7 @@ class PlayersController < ApplicationController
     private
 
     def player_params
-        params.permit(:p_name, :p_birthday, :p_nationality, :height, :weight, :position, :user_id, :organization_id)
+        params.permit(:p_name, :p_birthday, :p_nationality, :height, :weight, :position, :image, :user_id, :organization_id)
     end
 
 end

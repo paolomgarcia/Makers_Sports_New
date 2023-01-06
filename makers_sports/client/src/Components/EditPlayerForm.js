@@ -75,7 +75,7 @@ function EditPlayerForm({updatePlayer}) {
         <label>Organization ID</label>
         <textarea type='text' name='organization_id' value={formData.organization_id} onChange={handleChange} />
 
-        <input type='submit' value='Update Player' />
+        <button><input type='submit' value='Update Player' /></button>
       </form>
       {errors?errors.map(e => <h2 style={{color:'red'}}>{e.toUpperCase()}</h2>):null}
       </div>
